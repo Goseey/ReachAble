@@ -1,0 +1,30 @@
+# =========================
+# PROJECT: ReachAble
+# Backend dependencies
+# =========================
+
+# Web framework
+fastapi
+
+# ASGI server
+uvicorn
+
+# Database ORM
+sqlalchemy
+
+# Data validation
+pydantic
+
+# Environment variables
+python-dotenv
+
+# =========================
+# HOW TO RUN
+# =========================
+# 1. Install dependencies:
+#    pip install -r requirements.txt
+#
+# 2. Run server:
+#    uvicorn main:app --reload
+#
+# =========================
