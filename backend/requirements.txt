@@ -1,30 +1,29 @@
-# =========================
-# PROJECT: ReachAble
-# Backend dependencies
-# =========================
-
 # Web framework
-fastapi
+fastapi==0.136.0
 
 # ASGI server
-uvicorn
-
-# Database ORM
-sqlalchemy
+uvicorn==0.44.0
 
 # Data validation
-pydantic
+pydantic==2.13.2
+
+# HTTP client (for endpoint checks)
+httpx==0.28.1
 
 # Environment variables
-python-dotenv
+python-dotenv==1.0.0
 
-# =========================
-# HOW TO RUN
-# =========================
-# 1. Install dependencies:
-#    pip install -r requirements.txt
-#
-# 2. Run server:
-#    uvicorn main:app --reload
-#
-# =========================
+# Database ORM
+sqlalchemy==2.0.30
+
+# Password hashing
+passlib[bcrypt]==1.7.4
+
+# JWT authentication
+python-jose[cryptography]==3.3.0
+
+# Task scheduler
+apscheduler==3.10.4
+
+# Telegram notifications
+python-telegram-bot==21.3
