@@ -1,15 +1,24 @@
 services:
   backend:
     build: ./backend
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    image: reachable-backend:latest
     ports:
       - "8000:8000"
-    volumes:
-      - ./backend:/app
-      - backend_db:/app/data
+    environment:
+      - DATABASE_URL=sqlite:////app/data/reachable.db
     env_file:
       - .env
+    volumes:
+      - backend_db:/app/data
+      - ./backend:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8000/health').raise_for_status()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 
 volumes:
   backend_db:
